@@ -1,0 +1,28 @@
+:host {
+    background: #fff;
+    display: block;
+    height: 70px;
+    margin-bottom: 1px;
+    padding: 10px;
+    position: relative;
+
+    .name {
+        color: #01579B;
+        font-size: 22px;
+        text-decoration: none;
+    }
+
+    .email {
+        color: #0277BD;
+        font-size: 14px;
+    }
+
+    .bt-remove {
+        width: 20px;
+        height: 20px;
+        background: url(/assets/icon-cancel-circle.png) no-repeat center;
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+    }
+}

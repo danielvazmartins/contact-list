@@ -1,0 +1,3 @@
+<app-header></app-header>
+<app-list-item *ngFor="let person of people" [data]="person" (personRemoved)="getAllPeople()"></app-list-item>
+<div class="bt-new" routerLink="/contact"></div>

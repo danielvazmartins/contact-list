@@ -1,0 +1,3 @@
+<a class="name" routerLink="/contact/{{data.id}}">{{data.name}}</a>
+<p class="email" *ngIf="data.contacts.length > 0">{{data.contacts[0].contact}}</p>
+<div class="bt-remove" (click)="removePerson(data.id)"></div>

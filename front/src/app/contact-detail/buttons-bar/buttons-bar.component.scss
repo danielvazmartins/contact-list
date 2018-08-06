@@ -1,0 +1,19 @@
+:host {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 -3px 3px #0000003d;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .bt {
+        width: 100px;
+        color: #009688;
+        font-family: Roboto;
+        font-size: 14px;
+        cursor: pointer;
+    }
+}

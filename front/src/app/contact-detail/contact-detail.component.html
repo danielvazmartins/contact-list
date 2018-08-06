@@ -1,0 +1,37 @@
+<app-header-photo [name]="person.name"></app-header-photo>
+<div class="box-wrap">
+    <h3 class="sub-title">Dados Pessoais</h3>
+    <div class="box dados">
+        <mat-form-field>
+            <input matInput placeholder="Nome Completo" type="text" name="name" [(ngModel)]="person.name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Empresa" type="text" name="company" [(ngModel)]="person.company">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Relacionamento" type="text" name="relationship" [(ngModel)]="person.relationship">
+        </mat-form-field>
+    </div>
+</div>
+<div class="box-wrap">
+    <h3 class="sub-title">Contatos</h3>
+    <div class="box contatos">
+        <div class="contact-row" *ngFor="let contact of person.contacts">
+            <mat-form-field>
+                <mat-select placeholder="Tipo" [(ngModel)]="contact.type">
+                    <mat-option *ngFor="let type of contactTypes" [value]="type.value">
+                        {{type.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="flex">
+                <input matInput placeholder="Contato" type="text" name="contact" [(ngModel)]="contact.contact">
+            </mat-form-field>
+            <div class="buttons">
+                <div class="bt-remove" (click)="removePerson(data.id)"></div>
+            </div>
+        </div>
+        <div class="bt-add-contact" (click)="addContact()">ADICIONAR CONTATO</div>
+    </div>
+</div>
+<app-buttons-bar (savePeople)="savePeople()"></app-buttons-bar>

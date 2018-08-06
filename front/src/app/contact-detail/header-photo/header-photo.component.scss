@@ -1,0 +1,25 @@
+:host {
+    background: #03A9F4;
+    display: block;
+    padding: 10px;
+
+    .bt-go-back {
+        width: 24px;
+        height: 24px;
+        background: url('/assets/icon-arrow-back.png') no-repeat center;
+    }
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+        background: url('/assets/avatar.png') no-repeat center;
+        margin: 10px auto;
+    }
+
+    h1 {
+        color: #fff;
+        text-align: center;
+        font-family: Times;
+        font-size: 21px;
+    }
+}

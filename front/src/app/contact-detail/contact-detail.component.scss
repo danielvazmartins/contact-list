@@ -1,0 +1,45 @@
+:host {
+    .box-wrap {
+        padding: 5px;
+
+        sub-title {
+            font-family: "Times New Roman";
+            font-weight: bold;
+            font-size: 17px;
+            color: #616161;
+        }
+    
+        .box {
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 3px 3px #0000003d;
+            display: flex;
+            flex-direction: column;
+
+            &.dados {
+                
+            }
+
+            .contact-row {
+                display: flex;
+
+                .flex {
+                    flex: 1
+                }
+
+                .bt-remove {
+                    width: 20px;
+                    height: 20px;
+                    background: url(/assets/icon-cancel-circle.png) no-repeat center;
+                }
+            }
+
+            .bt-save, .bt-add-contact {
+                color: #009688;
+                align-self: flex-end;
+                font-family: Roboto;
+                font-size: 14px;
+            }
+        }
+    }
+}
