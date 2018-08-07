@@ -5,7 +5,7 @@ export class ContatType {
 
 export class Contact {
     id: number
-    name: string
+    name:string = ''
     company: string
     relationship: string
     contacts: [{

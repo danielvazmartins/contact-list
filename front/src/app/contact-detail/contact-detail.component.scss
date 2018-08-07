@@ -1,12 +1,14 @@
 :host {
     .box-wrap {
         padding: 5px;
+        margin-bottom: 10px;
 
-        sub-title {
+        .sub-title {
             font-family: "Times New Roman";
             font-weight: bold;
             font-size: 17px;
             color: #616161;
+            margin-bottom: 5px;
         }
     
         .box {
@@ -16,12 +18,9 @@
             display: flex;
             flex-direction: column;
 
-            &.dados {
-                
-            }
-
             .contact-row {
                 display: flex;
+                flex-wrap: wrap;
 
                 .flex {
                     flex: 1
@@ -41,5 +40,9 @@
                 font-size: 14px;
             }
         }
+    }
+    .botton-safe {
+        display: block;
+        height: 60px;
     }
 }

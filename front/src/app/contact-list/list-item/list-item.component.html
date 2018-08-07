@@ -1,3 +1,14 @@
-<a class="name" routerLink="/contact/{{data.id}}">{{data.name}}</a>
-<p class="email" *ngIf="data.contacts.length > 0">{{data.contacts[0].contact}}</p>
-<div class="bt-remove" (click)="removePerson(data.id)"></div>
+<div class="col info">
+    <a class="name" routerLink="/contact/{{data.id}}">{{data.name}}</a>
+    <p class="company">{{data.company}}</p>
+</div>
+<div class="col icons">
+    <ng-container class="icons" *ngFor="let contact of data.contacts">
+        <a class="icon email" *ngIf="contact.type=='email'" href="mailto:{{contact.contact}}"></a>
+        <a class="icon tel" *ngIf="contact.type=='tel'" href="tel:{{contact.contact}}"></a>
+        <a class="icon mobile" *ngIf="contact.type=='mobile'" href="whatsapp:{{contact.contact}}"></a>
+    </ng-container>
+</div>
+<div class="col del">
+    <div class="bt-remove" (click)="removePerson(data.id)"></div>
+</div>

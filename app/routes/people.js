@@ -8,13 +8,12 @@ router.get('/', function(req, res, next) {
     db.people.findAll({
         include: [{
             model: db.contacts,
-            //as: 'firstEmail',
-            /*where: {
-                type: 1
-            },
             required: false,
-            limit: 1*/
-        }]
+            order: [['type']],
+        }],
+        order: [
+            ['name']
+        ]
     })
     .then(function(result) {
         res.json(result);
@@ -68,10 +67,8 @@ router.post('/', function(req, res, next) {
                     contact: contact.contact
                 })
                 .then(function(newContact) {
-                    newPerson.contacts.push(newContact).then(() => {
-                        return newPerson
-                    })
-                    //return newPerson
+                    newPerson.contacts.push(newContact)
+                    return newPerson
                 }); 
             })
             Promise.all(promiseMap).then((newPerson) => {
@@ -89,14 +86,42 @@ router.put('/:id', function(req, res, next) {
         company: req.body.company,
         relationship: req.body.relationship,
     }
+    let contacts = req.body.contacts;
+
+    // Procura a pessoa para alterar
     db.people.findOne({
         where: {
             id: id
         }
     }).then(person => {
+        // Atualiza os dados
         person.update(newData)
-        .then(result => {
-            res.json(result)
+        .then(newPerson => {
+            // Limpa os contatos existentes
+            db.contacts.destroy({
+                where: {
+                    people_id: id
+                }
+            }).then(result => {
+                // Adiciona os contatos atualizados
+                if ( contacts.length > 0 ) {
+                    let promiseMap = contacts.map( contact => {
+                        return db.contacts.create({
+                            people_id: id,
+                            type: contact.type,
+                            contact: contact.contact
+                        })
+                        .then(function(newContact) {
+                            return true
+                        }); 
+                    })
+                    Promise.all(promiseMap).then((result) => {
+                        res.json(result)
+                    })
+                } else {
+                    res.json(1)
+                }
+            })
         })
     })
 });

@@ -10,7 +10,7 @@ export class ListItemComponent implements OnInit {
 
   @Input() data
   @Output() personRemoved:EventEmitter<number> = new EventEmitter<number>()
-  
+
   constructor( private contactService: ContactService ) { }
 
   ngOnInit() {

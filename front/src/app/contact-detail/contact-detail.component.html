@@ -16,7 +16,7 @@
 <div class="box-wrap">
     <h3 class="sub-title">Contatos</h3>
     <div class="box contatos">
-        <div class="contact-row" *ngFor="let contact of person.contacts">
+        <div class="contact-row" *ngFor="let contact of person.contacts; let contactIndex = index">
             <mat-form-field>
                 <mat-select placeholder="Tipo" [(ngModel)]="contact.type">
                     <mat-option *ngFor="let type of contactTypes" [value]="type.value">
@@ -28,10 +28,11 @@
                 <input matInput placeholder="Contato" type="text" name="contact" [(ngModel)]="contact.contact">
             </mat-form-field>
             <div class="buttons">
-                <div class="bt-remove" (click)="removePerson(data.id)"></div>
+                <div class="bt-remove" (click)="removeContact(contactIndex)"></div>
             </div>
         </div>
         <div class="bt-add-contact" (click)="addContact()">ADICIONAR CONTATO</div>
     </div>
 </div>
+<div class="botton-safe"></div>
 <app-buttons-bar (savePeople)="savePeople()"></app-buttons-bar>

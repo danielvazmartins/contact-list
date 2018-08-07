@@ -49,20 +49,36 @@ export class ContactDetailComponent implements OnInit {
 
 
   public savePeople() {
-    // New people
-    if ( this.action == 'new' ) {
-      this.contactService.createPerson(this.person)
-      .subscribe( result => {
-        if ( result )
-          this.router.navigate(['/'])
-      })
+    let valid: boolean = true
+    if ( this.person.name.length == 0 ) {
+      alert("Favor preencher o nome do contato")
+      valid = false
     } else {
-      // Update people
-      this.contactService.updatePerson(this.person)
-      .subscribe( result => {
-        if ( result )
-          this.router.navigate(['/'])
+      this.person.contacts.forEach(contact => {
+        console.log(contact)
+        if ( contact.type == null || contact.contact.length == 0 ) {
+          alert('Favor preencher os contatos corretamente')
+          valid = false
+        }
       })
+    }
+
+    if ( valid ) {
+      // New people
+      if ( this.action == 'new' ) {
+        this.contactService.createPerson(this.person)
+        .subscribe( result => {
+          if ( result )
+            this.router.navigate(['/'])
+        })
+      } else {
+        // Update people
+        this.contactService.updatePerson(this.person)
+        .subscribe( result => {
+          if ( result )
+            this.router.navigate(['/'])
+        })
+      }
     }
   }
 
@@ -73,5 +89,10 @@ export class ContactDetailComponent implements OnInit {
       type: null, 
       contact: ''
     })
+  }
+
+  // Remove um contato
+  public removeContact(index:number){
+    this.person.contacts.splice(index, 1)
   }
 }

@@ -1,28 +1,63 @@
 :host {
     background: #fff;
-    display: block;
+    display: flex;
+    justify-content: space-between;
     height: 70px;
     margin-bottom: 1px;
     padding: 10px;
-    position: relative;
 
-    .name {
-        color: #01579B;
-        font-size: 22px;
-        text-decoration: none;
-    }
+    .col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-    .email {
-        color: #0277BD;
-        font-size: 14px;
-    }
+        &.info {
+            flex: 1;
+        }
+        .name {
+            color: #01579B;
+            font-size: 22px;
 
-    .bt-remove {
-        width: 20px;
-        height: 20px;
-        background: url(/assets/icon-cancel-circle.png) no-repeat center;
-        position: absolute;
-        right: 10px;
-        cursor: pointer;
+        }
+    
+        .company {
+            color: #0277BD;
+            font-size: 14px;
+        }
+
+        &.icons {
+            flex-direction: row;
+
+            .icon {
+                width: 24px;
+                height: 24px;
+                margin: 5px;
+                align-self: flex-end;
+
+                &.email {
+                    background: url('/assets/icon-email.png') no-repeat center;
+                }
+                &.email ˜ &.email {
+                    display: none;
+                }
+                &.tel {
+                    background: url('/assets/icon-phone.png') no-repeat center;
+                }
+                &.mobile {
+                    background: url('/assets/icon-whatsapp.png') no-repeat center;
+                }
+            }
+        }
+    
+        &.del {
+            justify-content: flex-start;
+
+            .bt-remove {
+                width: 20px;
+                height: 20px;
+                background: url(/assets/icon-cancel-circle.png) no-repeat center;
+                cursor: pointer;
+            }
+        }
     }
 }
