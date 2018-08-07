@@ -14,8 +14,8 @@ module.exports = function(app) {
     
     // Rota para as APIs REST
     var people = require('./routes/people');
-    app.use('/people', people);
+    app.use('/api/people', people);
     
 	var contacts = require('./routes/contacts');
-	app.use('/contacts', contacts);
+	app.use('/api/contacts', contacts);
 }

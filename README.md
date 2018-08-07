@@ -13,6 +13,12 @@ Lista de contatos utilizando NodeJs e Angular
 - Infraestrutura
 ```bash
 docker-compose up -d
+# Acessar o container do node para criar a estrutura do banco de dados
+docker exec -it contact-list-node bash
+cd /usr/local/nodejs/contact-list/
+sequelize db:migrate
+# Popular o banco com alguns dados (OPCIONAL)
+sequelize db:seed:all
 ```
 - Backend
 ```bash
@@ -20,6 +26,14 @@ cd app
 npm start
 ```
 - Frontend
+```bash
+cd front
+# Compilar para utilizar em producao 
+ng build --aot
+
+# Executar o Angular para desenvolvimento -> http://localhost:4200/ (OPCIONAL)
+ng serve
+```
 
 ## Estrutura do projeto
 - docker-compose `Infraestrutura. Containers necessários para o projeto`

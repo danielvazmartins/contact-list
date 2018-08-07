@@ -13,8 +13,8 @@ services:
     depends_on:
       - mysql
     build:
-      context: ./app
-      dockerfile: ../docker/node/Dockerfile
+      context: .
+      dockerfile: docker/node/Dockerfile
     container_name: contact-list-node
     restart: always
     ports:
@@ -23,3 +23,13 @@ services:
       - ./app/:/usr/local/nodejs/contact-list
       - /usr/local/nodejs/contact-list/node_modules
     command: ["./wait-for-it.sh", "mysql:3306", "--", "nodemon", "/bin/www"]
+  nginx:
+    container_name: contact-list-nginx
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./front/dist/front:/usr/share/nginx/html/contact-list
+    ports:
+      - 8083:80

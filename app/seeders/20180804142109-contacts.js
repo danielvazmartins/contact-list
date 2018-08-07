@@ -14,8 +14,14 @@ module.exports = {
             updatedAt: new Date(),
             people_id: person.id
           },{
-            type: "email",
-            contact: `contact${(index * (index+1)) + 2}@teste.com`,
+            type: "tel",
+            contact: `1234-${index}${index}${index}${index}`,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            people_id: person.id
+          },{
+            type: "mobile",
+            contact: `91234-${index}${index}${index}${index}`,
             createdAt: new Date(),
             updatedAt: new Date(),
             people_id: person.id

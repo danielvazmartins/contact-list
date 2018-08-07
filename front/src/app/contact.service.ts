@@ -8,8 +8,9 @@ import { Contact } from './contact.class';
 })
 export class ContactService {
 
-  private hostApi = 'http://localhost:3000'
-
+  //private hostApi = 'http://localhost:3000'
+  private hostApi = '/api'
+  
   constructor( private http:HttpClient ) { 
   }
 
