@@ -3,7 +3,7 @@
     "username": "contact-list",
     "password": "123456",
     "database": "contact-list",
-    "host": "mysql",
+    "host": "contact-list-mysql",
     "dialect": "mysql"
   },
   "test": {

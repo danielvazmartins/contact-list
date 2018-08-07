@@ -17,8 +17,6 @@ services:
       dockerfile: docker/node/Dockerfile
     container_name: contact-list-node
     restart: always
-    ports:
-      - 3000:3000
     volumes:
       - ./app/:/usr/local/nodejs/contact-list
       - /usr/local/nodejs/contact-list/node_modules

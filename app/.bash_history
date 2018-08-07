@@ -34,3 +34,15 @@ sequelize db:migrate:undo:all
 sequelize db:migrate
 sequelize db:seed:all
 exit
+cd /usr/local/nodejs/contact-list/
+cd /usr/local/nodejs/contact-list/app.js 
+sequelize db:migrate
+sequelize db:seed:all
+sequelize db:seed:all
+sequelize db:seed:undo:all
+sequelize db:seed:all
+sequelize db:seed:undo:all
+sequelize db:seed:all
+sequelize db:seed:undo:all
+sequelize db:seed:all
+exit

@@ -9,41 +9,48 @@ Lista de contatos utilizando NodeJs e Angular
 - Contact List Frontend
 `Create a web app which explores the API built in the second assignment. You are expected to use Angular 4, TypeScript, Angular CLI and SASS. The UI design is totally up to you.`
 
+## Site de demonstracao
+http://bravi.danielvazmartins.com.br/
+
 ## Executar o projeto
+- Frontend
+```bash
+cd front
+# Compilar o projeto para ser utilizado no docker do nginx 
+ng build --aot
+
+# Executar o Angular para desenvolvimento -> http://localhost:4200/ (OPCIONAL - NAO NECESSARIO)
+ng serve
+```
 - Infraestrutura
 ```bash
+# Iniciar containers (mysql, node, nginx)
 docker-compose up -d
 # Acessar o container do node para criar a estrutura do banco de dados
 docker exec -it contact-list-node bash
 cd /usr/local/nodejs/contact-list/
 sequelize db:migrate
-# Popular o banco com alguns dados (OPCIONAL)
+# Popular o banco com alguns dados (OPCIONAL - ACONSELHADO)
 sequelize db:seed:all
 ```
 - Backend
 ```bash
 cd app
+# Executar o node local para desenvolvimento (OPCIONAL - NAO NECESSARIO)
 npm start
 ```
-- Frontend
-```bash
-cd front
-# Compilar para utilizar em producao 
-ng build --aot
-
-# Executar o Angular para desenvolvimento -> http://localhost:4200/ (OPCIONAL)
-ng serve
-```
+- Acessar o projeto (essa porta esta configurada no docker-compose.yml)
+http://localhost:8083/
 
 ## Estrutura do projeto
 - docker-compose `Infraestrutura. Containers necessários para o projeto`
     - mysql
-    - node ?
-    - nginx ?
+    - node
+    - nginx
 - app `Back-end em NodeJS contendo a API da lista de contatos`
     - express `Framework NodeJS`
     - sequelize `ORM para acessar o banco de dados`
-    - sequelize-cli
+    - sequelize-cli `Utilizado para criar a estrutura do banco de dados e popular com dados existentes`
 - front `Front-end em Angular`
 
 ## Criação da base do projeto
